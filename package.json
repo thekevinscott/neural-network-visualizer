@@ -6,7 +6,11 @@
   "repository": "https://github.com/thekevinscott/neural-network-visualizer",
   "homepage": "https://thekevinscott.github.io/neural-network-visualizer",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gh-pages -d docs",
+    "prepublish": "yarn build",
+    "build": "rollup -c rollup.config.js",
+    "develop": "rollup -c rollup.config.js -w",
+    "test": "jest --watchAll"
   },
   "author": "Kevin Scott <kevin@hitheory.com>",
   "license": "MIT",
