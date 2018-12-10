@@ -17,8 +17,8 @@ export default {
     })
   ],
   external: [
-    // 'vega-embed',
-    // 'emotion',
+    'react',
+    'react-konva',
   ],
 }
 

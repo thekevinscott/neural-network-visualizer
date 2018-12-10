@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NNVisualizer from '../../dist/';
+import App from './app';
 
-ReactDOM.render(<NNVisualizer />, document.body);
+ReactDOM.render(<App />, document.getElementById('root'));
