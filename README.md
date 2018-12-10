@@ -51,4 +51,4 @@ ReactDOM.render(<NNVisualizer
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/thekevinscott/neural-network-visualizer/blob/master/LICENSE)
