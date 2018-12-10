@@ -1,0 +1,25 @@
+.nn {
+  height: 100%;
+  width: 100%;
+}
+
+:global {
+  .plots {
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  #data, #random, #trained {
+    margin: 30px;
+  }
+
+  .caption {
+    font-weight: bold;
+  }
+
+  .coeff {
+    font-weight: normal;
+  }
+}

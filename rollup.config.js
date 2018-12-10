@@ -1,13 +1,20 @@
 import typescript from 'rollup-plugin-typescript';
+import commonjs from 'rollup-plugin-commonjs';
 
 export default {
-  input: './src/index.ts',
+  input: './src/index.tsx',
   output: {
     file: 'dist/index.js',
     format: 'esm',
   },
   plugins: [
     typescript(),
+    commonjs({
+      include: 'node_modules/**',
+      namedExports: {
+        'node_modules/react/index.js': ['Component', 'PureComponent', 'Fragment', 'Children', 'createElement']
+      }
+    })
   ],
   external: [
     // 'vega-embed',
