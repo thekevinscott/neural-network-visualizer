@@ -1,0 +1,19 @@
+{
+  "name": "neural-network-visualizer",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "repository": "https://github.com/thekevinscott/neural-network-visualizer",
+  "homepage": "https://thekevinscott.github.io/neural-network-visualizer",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Scott <kevin@hitheory.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^0.67.4",
+    "rollup-plugin-typescript": "^1.0.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.2.2"
+  }
+}
