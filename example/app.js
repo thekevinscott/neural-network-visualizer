@@ -16,7 +16,7 @@ const App = () => (
             units: 4,
           },
           // {
-          //   units: 6,
+          //   units: 12,
           // },
           {
             units: 1,

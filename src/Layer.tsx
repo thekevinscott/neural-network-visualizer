@@ -70,7 +70,9 @@ const getPosition = ({
   layerSize: number;
   units: number;
 }) => {
-  const pad = PADDING + ((50 - (maxCells * 2)) * (maxCells - units));
+  const extraAmount = 1200 / (maxCells ** 2);
+  const extraPadding = extraAmount * (maxCells - units);
+  const pad = PADDING + extraPadding;
   const position = getRange(getPos(i, layerSize, units), [0, layerSize], [pad, layerSize - pad]);
   if (vertical) {
     return {
