@@ -18,6 +18,7 @@
   "author": "Kevin Scott <kevin@hitheory.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^16.7.13",
     "gh-pages": "^2.0.1",
     "parcel": "^1.10.3",
     "react-dom": "^16.6.3",
