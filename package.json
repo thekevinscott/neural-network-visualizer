@@ -7,8 +7,8 @@
   "homepage": "https://thekevinscott.github.io/neural-network-visualizer",
   "scripts": {
     "example:clear": "rimraf example/build",
-    "example:develop": "npm run example:clear && parcel example/src/index.html -d example/build --public-url /neural-network-visualizer/",
-    "example:build": "npm run example:clear && parcel build example/src/index.html -d example/build --public-url /neural-network-visualizer/",
+    "example:develop": "npm run example:clear && parcel example/index.html -d example/build --public-url /neural-network-visualizer/",
+    "example:build": "npm run example:clear && parcel build example/index.html -d example/build --public-url /neural-network-visualizer/",
     "deploy": "npm run example:build && gh-pages -d example/build",
     "prepublish": "yarn build",
     "build": "rollup -c rollup.config.js",
