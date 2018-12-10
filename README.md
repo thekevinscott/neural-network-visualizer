@@ -37,3 +37,18 @@ ReactDOM.render(<NNVisualizer
   }}
 />, document.body);
 ```
+
+## API
+
+* `width` - The width of the visualizatoin
+* `height` - The height of the visualization
+* `network.vertical` - An optional boolean denoting whether the network is vertical or not
+* `network.layers` - An array of `Layer` objects`
+
+### `Layer`
+
+* `units` - The number of units in the layer
+
+## License
+
+[MIT](LICENSE)
