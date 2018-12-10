@@ -6,6 +6,7 @@
   "repository": "https://github.com/thekevinscott/neural-network-visualizer",
   "homepage": "https://thekevinscott.github.io/neural-network-visualizer",
   "scripts": {
+    "docs": "parcel docs/index.html",
     "deploy": "gh-pages -d docs",
     "prepublish": "yarn build",
     "build": "rollup -c rollup.config.js",
@@ -15,6 +16,7 @@
   "author": "Kevin Scott <kevin@hitheory.com>",
   "license": "MIT",
   "devDependencies": {
+    "parcel": "^1.10.3",
     "rollup": "^0.67.4",
     "rollup-plugin-typescript": "^1.0.0",
     "tslib": "^1.9.3",
