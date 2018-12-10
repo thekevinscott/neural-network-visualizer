@@ -2,7 +2,7 @@
 
 This is a React component for generating Neural Network visualizations.
 
-![A sample output](example/sample.png)
+![A sample output](https://raw.githubusercontent.com/thekevinscott/neural-network-visualizer/master/example/sample.png)
 
 [Live demo](https://thekevinscott.github.io/neural-network-visualizer/)
 
