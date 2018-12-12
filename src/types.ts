@@ -5,4 +5,6 @@ export interface INetwork {
 
 export interface ILayer {
   units: number;
+  fill: string;
+  stroke: string;
 }

@@ -32,14 +32,16 @@ const Cell:React.SFC<IProps> = ({
   const strkWidth = strokeWidth || DEFAULT_STROKE_WIDTH;
   const rad = (radius || DEFAULT_RADIUS) - strkWidth;
   return (
-    <Circle
-      x={x}
-      y={y}
-      radius={rad}
-      fill={fill || DEFAULT_FILL}
-      strokeWidth={strkWidth}
-      stroke={stroke || DEFAULT_STROKE}
-    />
+    <>
+      <Circle
+        x={x}
+        y={y}
+        radius={rad}
+        fill={fill || DEFAULT_FILL}
+        strokeWidth={strkWidth}
+        stroke={stroke || DEFAULT_STROKE}
+      />
+    </>
   );
 };
 

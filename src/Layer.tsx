@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {
   Circle,
+  Line,
 } from 'react-konva';
 import Cell from './Cell';
 import * as Konva from 'konva';
@@ -16,44 +17,15 @@ import {
 } from './types';
 
 interface IProps {
-  layer: ILayer;
-  vertical?: boolean;
-  layerPosition: number;
-  color: any;
-  layerSize: number;
-  maxCells: number;
+  // layer: ILayer;
+  // vertical?: boolean;
+  // layerPosition: number;
+  // layerSize: number;
+  // maxCells: number;
+  fill: string;
+  stroke: string;
+  cells: {x: number; y: number}[];
 }
-
-const Layer:React.SFC<IProps> = ({
-  layer,
-  vertical,
-  color,
-  layerPosition,
-  layerSize,
-  maxCells,
-}) => (
-  <>
-    {(Array(layer.units) as any).fill('').map((_: any, i:number) => {
-      const fill = color.toString();
-      const stroke = color.darken(0.8).toString();
-      return (
-        <Cell
-          fill={fill}
-          stroke={stroke}
-          {...getPosition({
-            maxCells,
-            i,
-            layerPosition,
-            layerSize,
-            vertical,
-            units: layer.units,
-          })}
-          radius={40}
-        />
-      );
-    })}
-  </>
-);
 
 const getPosition = ({
   maxCells,
@@ -87,4 +59,110 @@ const getPosition = ({
   };
 };
 
-export default Layer;
+const Layer:React.SFC<IProps> = ({
+  cells,
+  fill,
+  stroke,
+  strokeWidth,
+  radius,
+}) => cells.map((cell, key) => (
+  <Cell
+    key={key}
+    fill={fill}
+    stroke={stroke}
+    strokeWidth={strokeWidth}
+    radius={radius || 40}
+    x={cell.x}
+    y={cell.y}
+  />
+));
+
+const getCells = (units, {
+  maxCells,
+  layerPosition,
+  layerSize,
+  vertical,
+}) => {
+  const points = [];
+
+  for (let i = 0; i < units; i++) {
+    points.push(getPosition({
+      maxCells,
+      i,
+      layerPosition,
+      layerSize,
+      vertical,
+      units,
+    }));
+  }
+
+  return points;
+};
+
+const getLines = (cells, previousLayerCells, {
+  lineColor,
+  lineWidth,
+}) => {
+  const lines = [];
+
+  if (!previousLayerCells) {
+    return lines;
+  }
+
+  for (let i = 0; i < cells.length; i++) {
+    for (let j = 0; j < previousLayerCells.length; j++) {
+      const cell = cells[i];
+      const previousCell = previousLayerCells[j];
+
+      lines.push(<Line
+        key={`${i}${j}`}
+        points={[
+          cell.x, cell.y,
+          previousCell.x, previousCell.y,
+        ]}
+        stroke={lineColor || 'black'}
+        strokeWidth={lineWidth === undefined ? 3 : lineWidth}
+        closed
+      />);
+    }
+  }
+
+  return lines;
+};
+
+export default ({
+  layerPosition,
+  maxCells,
+  layerSize,
+  vertical,
+  layer,
+  previousLayerCells,
+  lineColor,
+  lineWidth,
+}) => {
+  const cells = getCells(layer.units, {
+    layerPosition,
+    maxCells,
+    layerSize,
+    vertical,
+  });
+
+  const lines = getLines(cells, previousLayerCells, {
+    lineColor,
+    lineWidth,
+  });
+
+  return {
+    cells,
+    lines,
+    Component: () => (
+      <Layer
+        cells={cells}
+        fill={layer.fill}
+        stroke={layer.stroke}
+        strokeWidth={layer.strokeWidth}
+        radius={layer.radius}
+      />
+    ),
+  };
+};
