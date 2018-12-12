@@ -67,7 +67,7 @@ const Layer:React.SFC<IProps> = ({
   radius,
 }) => cells.map((cell, key) => (
   <Cell
-    key={key}
+    key={`cell-${key}`}
     fill={fill}
     stroke={stroke}
     strokeWidth={strokeWidth}
@@ -116,7 +116,7 @@ const getLines = (cells, previousLayerCells, {
       const previousCell = previousLayerCells[j];
 
       lines.push(<Line
-        key={key++}
+        key={`line-${key++}`}
         points={[
           cell.x, cell.y,
           previousCell.x, previousCell.y,
