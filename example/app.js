@@ -7,11 +7,6 @@ export const COLORS = [
   Color.hsl([33, 100, 50]),
 ];
 
-// const getColors = (color) => ({
-//   fill: color.toString(),
-//   stroke: color.darken(0.8).toString(),
-// });
-
 const App = () => (
   <div id="app">
     <NNVisualizer

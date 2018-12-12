@@ -109,19 +109,20 @@ const getLines = (cells, previousLayerCells, {
     return lines;
   }
 
+  let key = 0;
   for (let i = 0; i < cells.length; i++) {
     for (let j = 0; j < previousLayerCells.length; j++) {
       const cell = cells[i];
       const previousCell = previousLayerCells[j];
 
       lines.push(<Line
-        key={`${i}${j}`}
+        key={key++}
         points={[
           cell.x, cell.y,
           previousCell.x, previousCell.y,
         ]}
         stroke={lineColor || 'black'}
-        strokeWidth={lineWidth === undefined ? 3 : lineWidth}
+        strokeWidth={lineWidth === undefined ? 3 : Number(lineWidth)}
         closed
       />);
     }
