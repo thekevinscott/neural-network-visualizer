@@ -18,7 +18,7 @@ const App = () => (
         vertical: false,
         layers: [
           {
-            units: 3,
+            units: "1",
             fill: COLORS[0],
             stroke: 'black',
           },

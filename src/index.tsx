@@ -38,9 +38,9 @@ class NNVisualizer extends React.Component<IProps> {
     } = this.props;
 
     const maxCells = layers.reduce((max, layer) => {
-      return max < layer.units ? layer.units : max;
+      const units = parseInt(layer.units, 10);
+      return max < units ? units : max;
     }, 0);
-
 
     const {
       lines,

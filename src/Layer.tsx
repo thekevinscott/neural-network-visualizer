@@ -141,7 +141,8 @@ export default ({
   lineColor,
   lineWidth,
 }) => {
-  const cells = getCells(layer.units, {
+  const units = parseInt(layer.units, 10);
+  const cells = getCells(units, {
     layerPosition,
     maxCells,
     layerSize,
