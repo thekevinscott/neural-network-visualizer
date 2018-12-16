@@ -11,7 +11,7 @@ while (root.firstChild) {
   root.removeChild(root.firstChild);
 }
 
-new NNVisualizer(root, {
+const nn = new NNVisualizer(root, {
   width: 800,
   height: 600,
   network: {
@@ -35,4 +35,9 @@ new NNVisualizer(root, {
       },
     ],
   },
+});
+
+nn.animate({
+  animateInterval: 100,
+  roughness: [1, 1.2],
 });

@@ -1,6 +1,9 @@
 import {
+  INetwork,
   IProps,
   ILayer,
+  ILine,
+  ICell,
 } from './types';
 import rough from 'roughjs';
 import getPosition from './getPosition';
@@ -41,6 +44,10 @@ const parseProps = ({
 
 class NNVisualizer {
   private canvas: HTMLCanvasElement;
+  private network: INetwork;
+  private cells: ICell[];
+  private lines: ILine[];
+  private animating: boolean = false;
 
   constructor(target: HTMLElement, props:IProps) {
     const {
@@ -54,15 +61,24 @@ class NNVisualizer {
 
     const parsedProps = parseProps(props);
 
+    this.network = parsedProps.network;
+
     const {
       lines,
       cells,
     } = getCellsAndLines(parsedProps);
 
+    this.lines = lines;
+    this.cells = cells;
+
+    this.render();
+  }
+
+  render = (roughness?: number) => {
     const rc = rough.canvas(this.canvas);
 
-    lines.forEach(line => {
-      const layer = parsedProps.network.layers[line.layer];
+    this.lines.forEach(line => {
+      const layer = this.network.layers[line.layer];
       rc.line(
         line.points[0].x,
         line.points[0].y,
@@ -70,23 +86,49 @@ class NNVisualizer {
         line.points[1].y,
         {
           ...layer,
+          roughness: roughness || layer.roughness,
           strokeWidth: layer.lineWidth,
         }
       );
     });
 
-    cells.forEach(cell => {
-      const layer = parsedProps.network.layers[cell.layer];
+    this.cells.forEach(cell => {
+      const layer = this.network.layers[cell.layer];
       rc.circle(
         cell.x,
         cell.y,
         layer.diameter,
         {
           ...layer,
+          roughness: roughness || layer.roughness,
         }
       );
     });
   }
+
+  animate = ({
+    animateInterval,
+    roughness,
+  }: {
+    animateInterval?: number;
+    roughness?: [number, number];
+  } = {}) => {
+    this.animating = true;
+    const render = () => {
+      this.render(getRand(roughness));
+      setInterval(() => {
+        render();
+      }, animateInterval || 100);
+    };
+
+    render();
+  }
+
+  stopAnimating = () => {
+    this.animating = false;
+  }
 }
+
+const getRand = (range: [number, number]) => range[0] + (Math.random() * (range[1] - range[0]));
 
 export default NNVisualizer;
