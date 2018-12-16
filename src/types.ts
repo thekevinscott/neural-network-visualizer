@@ -26,6 +26,7 @@ export interface ILayer {
 export interface IProps {
   width: number;
   height: number;
+  deviceScaleFactor?: number;
   network: INetwork;
   lineColor?: string;
 }

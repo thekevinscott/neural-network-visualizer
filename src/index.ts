@@ -57,6 +57,10 @@ class NNVisualizer {
     this.canvas = document.createElement('canvas');
     this.canvas.width = width;
     this.canvas.height = height;
+    const deviceScaleFactor = props.deviceScaleFactor || 1;
+    this.canvas.style.width = `${width / deviceScaleFactor}px`;
+    this.canvas.style.height = `${height / deviceScaleFactor}px`;
+    this.canvas.getContext('2d').scale(deviceScaleFactor, deviceScaleFactor);
     target.appendChild(this.canvas);
 
     const parsedProps = parseProps(props);

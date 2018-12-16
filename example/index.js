@@ -16,7 +16,7 @@ const nn = new NNVisualizer(root, {
   height: 600,
   network: {
     vertical: false,
-    roughness: 0.5,
+    roughness: 5.5,
     layers: [
       {
         units: "1",
@@ -37,7 +37,7 @@ const nn = new NNVisualizer(root, {
   },
 });
 
-nn.animate({
-  animateInterval: 100,
-  roughness: [1, 1.2],
-});
+// nn.animate({
+//   animateInterval: 100,
+//   roughness: [1, 1.2],
+// });
