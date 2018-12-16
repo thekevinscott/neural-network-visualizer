@@ -14,11 +14,9 @@ while (root.firstChild) {
 new NNVisualizer(root, {
   width: 800,
   height: 600,
-  // lineColor: 'rgba(0,0,0,0.7)',
   network: {
     vertical: false,
-    // fillStyle: 'zigzag',
-    roughness: 2,
+    roughness: 0.5,
     layers: [
       {
         units: "1",
