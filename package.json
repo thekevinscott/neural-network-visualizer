@@ -1,6 +1,6 @@
 {
   "name": "neural-network-visualizer",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "",
   "main": "dist/index.js",
   "repository": "https://github.com/thekevinscott/neural-network-visualizer",
@@ -41,6 +41,7 @@
     "emotion": "^10.0.4",
     "konva": "^2.5.1",
     "react": "^16.6.3",
-    "react-konva": "^16.6.31"
+    "react-konva": "^16.6.31",
+    "roughjs": "^2.2.5"
   }
 }

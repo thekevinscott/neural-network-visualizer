@@ -5409,6 +5409,11 @@ rollup@^0.67.4:
     "@types/estree" "0.0.39"
     "@types/node" "*"
 
+roughjs@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/roughjs/-/roughjs-2.2.5.tgz#1ca03432e7e620a165865950a3033ce5f87eb250"
+  integrity sha512-OHNG2wHIaPDVgKIehFMyiiC+xPjy+yEBxsDkTIDoosXtEkzckdPuXuK3Z8nSmZtPwF+LaTMlExsOcfIN+aql/A==
+
 safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"

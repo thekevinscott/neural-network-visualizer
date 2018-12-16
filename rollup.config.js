@@ -2,7 +2,7 @@ import typescript from 'rollup-plugin-typescript';
 import commonjs from 'rollup-plugin-commonjs';
 
 export default {
-  input: './src/index.tsx',
+  input: './src/index.ts',
   output: {
     file: 'dist/index.js',
     format: 'esm',
@@ -17,8 +17,7 @@ export default {
     })
   ],
   external: [
-    'react',
-    'react-konva',
+    'roughjs',
   ],
 }
 
