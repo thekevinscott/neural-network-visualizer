@@ -63,7 +63,6 @@ class NNVisualizer {
 
     lines.forEach(line => {
       const layer = parsedProps.network.layers[line.layer];
-      console.log(layer);
       rc.line(
         line.points[0].x,
         line.points[0].y,

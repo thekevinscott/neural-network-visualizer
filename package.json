@@ -1,6 +1,6 @@
 {
   "name": "neural-network-visualizer",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "",
   "main": "dist/index.js",
   "repository": "https://github.com/thekevinscott/neural-network-visualizer",
