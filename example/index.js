@@ -14,6 +14,7 @@ while (root.firstChild) {
 const nn = new NNVisualizer(root, {
   width: 800,
   height: 600,
+  deviceScaleFactor: 2,
   network: {
     vertical: false,
     roughness: 5.5,

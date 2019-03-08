@@ -80,3 +80,5 @@ Line definitions in the first layer will be discarded; layer definitions work ba
 ## License
 
 [MIT](https://github.com/thekevinscott/neural-network-visualizer/blob/master/LICENSE)
+
+![](https://ga-beacon.appspot.com/UA-112845439-4/neural-network-visualizer/readme)
